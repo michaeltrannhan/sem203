@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "optional": "cpp",
+        "future": "cpp",
+        "numeric": "cpp",
+        "cmath": "cpp"
+    },
+    "git.ignoreLimitWarning": true
+}

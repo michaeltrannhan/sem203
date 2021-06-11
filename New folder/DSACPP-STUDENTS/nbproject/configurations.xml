@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="f9" displayName="exercises" projectFiles="true">
+        <itemPath>dsacpp/include/exercises/exBST.h</itemPath>
+        <itemPath>dsacpp/include/exercises/exList.h</itemPath>
+        <itemPath>dsacpp/include/exercises/exStackNQueue.h</itemPath>
+        <itemPath>dsacpp/include/exercises/runEx.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f12" displayName="finalexam" projectFiles="true">
+        <itemPath>dsacpp/include/finalexam/finalexam.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f13" displayName="geom" projectFiles="true">
+        <itemPath>dsacpp/include/geom/Point3D.h</itemPath>
+        <itemPath>dsacpp/include/geom/Vector3D.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f7" displayName="graph" projectFiles="true">
+        <itemPath>dsacpp/include/graph/AbstractGraph.h</itemPath>
+        <itemPath>dsacpp/include/graph/DGraphDemo.h</itemPath>
+        <itemPath>dsacpp/include/graph/DGraphModel.h</itemPath>
+        <itemPath>dsacpp/include/graph/IGraph.h</itemPath>
+        <itemPath>dsacpp/include/graph/UGraphDemo.h</itemPath>
+        <itemPath>dsacpp/include/graph/UGraphModel.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5" displayName="hash" projectFiles="true">
+        <itemPath>dsacpp/include/hash/IMap.h</itemPath>
+        <itemPath>dsacpp/include/hash/XHashMap.h</itemPath>
+        <itemPath>dsacpp/include/hash/XHashMapDemo.h</itemPath>
+        <itemPath>dsacpp/include/hash/country</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="heap" projectFiles="true">
+        <itemPath>dsacpp/include/heap/Heap.h</itemPath>
+        <itemPath>dsacpp/include/heap/HeapDemo.h</itemPath>
+        <itemPath>dsacpp/include/heap/IHeap.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="list" projectFiles="true">
+        <itemPath>dsacpp/include/list/DLinkedList.h</itemPath>
+        <itemPath>dsacpp/include/list/DLinkedListDemo.h</itemPath>
+        <itemPath>dsacpp/include/list/IList.h</itemPath>
+        <itemPath>dsacpp/include/list/SLinkedList.h</itemPath>
+        <itemPath>dsacpp/include/list/SLinkedListDemo.h</itemPath>
+        <itemPath>dsacpp/include/list/XArrayList.h</itemPath>
+        <itemPath>dsacpp/include/list/XArrayListDemo.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f10" displayName="midterm" projectFiles="true">
+        <itemPath>dsacpp/include/midterm/C20193_StudentCode.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f11" displayName="midterm_solution" projectFiles="true">
+        <itemPath>dsacpp/include/midterm_solution/C20193_StudentCode_SOLUTION.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f6" displayName="sorting" projectFiles="true">
+        <itemPath>dsacpp/include/sorting/BubbleSort.h</itemPath>
+        <itemPath>dsacpp/include/sorting/BubbleSortDemo.h</itemPath>
+        <itemPath>dsacpp/include/sorting/DLinkedListSE.h</itemPath>
+        <itemPath>dsacpp/include/sorting/HeapSort.h</itemPath>
+        <itemPath>dsacpp/include/sorting/HeapSortDemo.h</itemPath>
+        <itemPath>dsacpp/include/sorting/ISort.h</itemPath>
+        <itemPath>dsacpp/include/sorting/ListSortDemo.h</itemPath>
+        <itemPath>dsacpp/include/sorting/QuickSort.h</itemPath>
+        <itemPath>dsacpp/include/sorting/QuickSortDemo.h</itemPath>
+        <itemPath>dsacpp/include/sorting/SLinkedListSE.h</itemPath>
+        <itemPath>dsacpp/include/sorting/ShellSort.h</itemPath>
+        <itemPath>dsacpp/include/sorting/ShellSortDemo.h</itemPath>
+        <itemPath>dsacpp/include/sorting/StraightInsertionSort.h</itemPath>
+        <itemPath>dsacpp/include/sorting/StraightInsertionSortDemo.h</itemPath>
+        <itemPath>dsacpp/include/sorting/StraightSelectionSort.h</itemPath>
+        <itemPath>dsacpp/include/sorting/StraightSelectionSortDemo.h</itemPath>
+        <itemPath>dsacpp/include/sorting/XArrayListSE.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="stacknqueue" projectFiles="true">
+        <itemPath>dsacpp/include/stacknqueue/IDeck.h</itemPath>
+        <itemPath>dsacpp/include/stacknqueue/PriorityQueue.h</itemPath>
+        <itemPath>dsacpp/include/stacknqueue/Queue.h</itemPath>
+        <itemPath>dsacpp/include/stacknqueue/QueueDemo.h</itemPath>
+        <itemPath>dsacpp/include/stacknqueue/Stack.h</itemPath>
+        <itemPath>dsacpp/include/stacknqueue/StackDemo.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f8" displayName="test" projectFiles="true">
+        <itemPath>dsacpp/include/test/AVLTest.h</itemPath>
+        <itemPath>dsacpp/include/test/BSTTest.h</itemPath>
+        <itemPath>dsacpp/include/test/DLinkedListSETest.h</itemPath>
+        <itemPath>dsacpp/include/test/DLinkedListTest.h</itemPath>
+        <itemPath>dsacpp/include/test/GraphTest.h</itemPath>
+        <itemPath>dsacpp/include/test/HeapTest.h</itemPath>
+        <itemPath>dsacpp/include/test/PriorityQueueTest.h</itemPath>
+        <itemPath>dsacpp/include/test/QueueTest.h</itemPath>
+        <itemPath>dsacpp/include/test/SLinkedListSETest.h</itemPath>
+        <itemPath>dsacpp/include/test/SLinkedListTest.h</itemPath>
+        <itemPath>dsacpp/include/test/SortTest.h</itemPath>
+        <itemPath>dsacpp/include/test/StackTest.h</itemPath>
+        <itemPath>dsacpp/include/test/XArrayListSETest.h</itemPath>
+        <itemPath>dsacpp/include/test/XArrayListTest.h</itemPath>
+        <itemPath>dsacpp/include/test/XHashMapTest.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="tree" projectFiles="true">
+        <itemPath>dsacpp/include/tree/AVL.h</itemPath>
+        <itemPath>dsacpp/include/tree/AVLDemo.h</itemPath>
+        <itemPath>dsacpp/include/tree/BST.h</itemPath>
+        <itemPath>dsacpp/include/tree/BSTDemo.h</itemPath>
+        <itemPath>dsacpp/include/tree/IBST.h</itemPath>
+        <itemPath>dsacpp/include/tree/ITreeWalker.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="util" projectFiles="true">
+        <itemPath>dsacpp/include/util/ArrayLib.h</itemPath>
+        <itemPath>dsacpp/include/util/Point.h</itemPath>
+        <itemPath>dsacpp/include/util/sampleFunc.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="geom" projectFiles="true">
+        <itemPath>dsacpp/src/geom/Point3D.cpp</itemPath>
+        <itemPath>dsacpp/src/geom/Vector3D.cpp</itemPath>
+      </logicalFolder>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <stripSymbols>true</stripSymbols>
+          <architecture>2</architecture>
+          <standard>8</standard>
+          <commandlineTool>g++</commandlineTool>
+          <incDir>
+            <pElem>doctest</pElem>
+            <pElem>dsacpp/include</pElem>
+          </incDir>
+          <warningLevel>0</warningLevel>
+        </ccTool>
+      </compileType>
+      <item path="dsacpp/include/exercises/exBST.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/exercises/exList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/exercises/exStackNQueue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/exercises/runEx.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/finalexam/finalexam.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/geom/Point3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/geom/Vector3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/AbstractGraph.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/DGraphDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/DGraphModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/IGraph.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/UGraphDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/UGraphModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/IMap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/XHashMap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/XHashMapDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/country" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/heap/Heap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/heap/HeapDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/heap/IHeap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/DLinkedList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/DLinkedListDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/IList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/SLinkedList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/SLinkedListDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/XArrayList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/XArrayListDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/midterm/C20193_StudentCode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/midterm_solution/C20193_StudentCode_SOLUTION.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/BubbleSort.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/BubbleSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/DLinkedListSE.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/HeapSort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/HeapSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ISort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ListSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/QuickSort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/QuickSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/SLinkedListSE.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ShellSort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ShellSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightInsertionSort.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightInsertionSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightSelectionSort.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightSelectionSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/XArrayListSE.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/IDeck.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/PriorityQueue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/Queue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/QueueDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/Stack.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/StackDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/AVLTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/BSTTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/DLinkedListSETest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/DLinkedListTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/GraphTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/HeapTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/PriorityQueueTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/QueueTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/SLinkedListSETest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/SLinkedListTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/SortTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/StackTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/XArrayListSETest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/XArrayListTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/XHashMapTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/AVL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/AVLDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/BST.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/BSTDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/IBST.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/ITreeWalker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/util/ArrayLib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/util/Point.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/util/sampleFunc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/src/geom/Point3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="dsacpp/src/geom/Vector3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <standard>8</standard>
+          <incDir>
+            <pElem>dsacpp/include</pElem>
+            <pElem>doctest</pElem>
+          </incDir>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="dsacpp/include/exercises/exBST.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/exercises/exList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/exercises/exStackNQueue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/exercises/runEx.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/finalexam/finalexam.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/geom/Point3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/geom/Vector3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/AbstractGraph.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/DGraphDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/DGraphModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/IGraph.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/UGraphDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/graph/UGraphModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/IMap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/XHashMap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/XHashMapDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/hash/country" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/heap/Heap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/heap/HeapDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/heap/IHeap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/DLinkedList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/DLinkedListDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/IList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/SLinkedList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/SLinkedListDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/XArrayList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/list/XArrayListDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/midterm/C20193_StudentCode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/midterm_solution/C20193_StudentCode_SOLUTION.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/BubbleSort.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/BubbleSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/DLinkedListSE.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/HeapSort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/HeapSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ISort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ListSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/QuickSort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/QuickSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/SLinkedListSE.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ShellSort.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/ShellSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightInsertionSort.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightInsertionSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightSelectionSort.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/StraightSelectionSortDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/sorting/XArrayListSE.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/IDeck.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/PriorityQueue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/Queue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/QueueDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/Stack.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/stacknqueue/StackDemo.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/AVLTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/BSTTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/DLinkedListSETest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/DLinkedListTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/GraphTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/HeapTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/PriorityQueueTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/QueueTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/SLinkedListSETest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/SLinkedListTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/SortTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/StackTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/XArrayListSETest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/XArrayListTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="dsacpp/include/test/XHashMapTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/AVL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/AVLDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/BST.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/BSTDemo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/IBST.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/tree/ITreeWalker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/util/ArrayLib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/util/Point.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/include/util/sampleFunc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsacpp/src/geom/Point3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="dsacpp/src/geom/Vector3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
