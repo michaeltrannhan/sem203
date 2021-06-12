@@ -15,8 +15,8 @@
 #define XARRAYLISTDEMO_H
 #include <iostream>
 #include <iomanip>
-#include "list/XArrayList.h"
-#include "util/Point.h"
+#include "../list/XArrayList.h"
+#include "../util/Point.h"
 using namespace std;
 
 void xlistDemo1(){

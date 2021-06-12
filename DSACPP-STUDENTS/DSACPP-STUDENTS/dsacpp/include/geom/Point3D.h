@@ -23,7 +23,7 @@ using namespace std;
 
 #define EPSILON (1E-8)
 
-#include "geom/Vector3D.h"
+#include "Vector3D.h"
 class Point3D {
 public:
     friend ostream &operator<<( ostream &os, const Point3D& point);

@@ -13,10 +13,10 @@
 
 #ifndef RUNEX_H
 #define RUNEX_H
-#include "doctest.h"
+#include "../../../doctest/doctest.h"
 // #include "list/DLinkedListDemo.h"
 // #include "list/SLinkedListDemo.h"
-#include "list/XArrayListDemo.h"
+#include "../list/XArrayListDemo.h"
 // #include "stacknqueue/StackDemo.h"
 // #include "stacknqueue/QueueDemo.h"
 // #include "heap/HeapDemo.h"

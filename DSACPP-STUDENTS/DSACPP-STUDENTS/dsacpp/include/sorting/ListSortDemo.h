@@ -14,10 +14,10 @@
 #ifndef LISTSORT_H
 #define LISTSORT_H
 
-#include "sorting/DLinkedListSE.h"
-#include "sorting/SLinkedListSE.h"
-#include "sorting/XArrayListSE.h"
-#include "util/Point.h"
+#include "../sorting/DLinkedListSE.h"
+#include "../sorting/SLinkedListSE.h"
+#include "../sorting/XArrayListSE.h"
+#include "../util/Point.h"
 
 int sortIntComparator(int& lhs, int& rhs){
     if(lhs < rhs) return +1;

@@ -14,9 +14,9 @@
 #ifndef XARRAYLISTTEST_H
 #define XARRAYLISTTEST_H
 
-#include "doctest.h"
-#include "list/XArrayList.h"
-#include "util/Point.h"
+#include "../../../doctest/doctest.h"
+#include "../list/XArrayList.h"
+#include "../util/Point.h"
 
 
 //////////////////////////////////////////////////////////////////////

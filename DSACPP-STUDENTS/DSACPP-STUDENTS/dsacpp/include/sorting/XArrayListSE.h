@@ -14,8 +14,8 @@
 #ifndef XARRAYLISTSE_H
 #define XARRAYLISTSE_H
 
-#include "list/XArrayList.h"
-#include "sorting/QuickSort.h"
+#include "../list/XArrayList.h"
+#include "../sorting/QuickSort.h"
 
 template<class T>
 class XArrayListSE: public XArrayList<T>{

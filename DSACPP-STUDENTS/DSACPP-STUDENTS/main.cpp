@@ -1,11 +1,11 @@
 #include <iostream>
 #include <iomanip>
-#include "list/XArrayListDemo.h"
-#include "util/Point.h"
-#include "util/ArrayLib.h"
-#include "list/XArrayList.h"
-#include "geom/Point3D.h"
-#include "sorting/XArrayListSE.h"
+#include "dsacpp/include/list/XArrayListDemo.h"
+#include "dsacpp/include/util/Point.h"
+#include "dsacpp/include/util/ArrayLib.h"
+#include "dsacpp/include/list/XArrayList.h"
+#include "dsacpp/include/geom/Point3D.h"
+#include "dsacpp/include/sorting/XArrayListSE.h"
 
 
 using namespace std;

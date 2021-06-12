@@ -13,7 +13,7 @@
 
 #ifndef QUICKSORT_H
 #define QUICKSORT_H
-#include "sorting/ISort.h"
+#include "../sorting/ISort.h"
 
 template<class T>
 class QuickSort: public ISort<T>{

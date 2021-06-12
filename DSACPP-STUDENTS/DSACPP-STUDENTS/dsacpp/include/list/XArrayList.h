@@ -13,7 +13,7 @@
 
 #ifndef XARRAYLIST_H
 #define XARRAYLIST_H
-#include "list/IList.h"
+#include "../list/IList.h"
 
 #include <sstream>
 #include <iostream>
