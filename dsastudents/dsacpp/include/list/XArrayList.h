@@ -21,7 +21,7 @@
 using namespace std;
 
 template<class T>
-class XArrayList: IList<T> {
+class XArrayList: public IList<T> {
 public:
     class Iterator; //forward declaration
     
@@ -153,7 +153,7 @@ public:
         Iterator operator++(int){
             Iterator iterator = *this; 
             ++*this; 
-            return iterator; 
+            return iterator;
         }
     };
     //Iterator: END

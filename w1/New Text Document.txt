@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+  int data;
+  node *next;
+};
+node *createLinkedList(int n)
+{   
+    if(n == 0)
+        return NULL;
+  int value;
+  cin >> value;
+  node*head = new node();
+  head->data = value;
+  head->next = NULL;
+  node*ptr = head;
+  for(int i = 0; i < n-1; i++)
+  {
+    cin >> value;
+    node*newNode = new node();
+    newNode->data = value;
+    newNode->next = NULL;
+    ptr->next = newNode;
+    ptr = newNode;
+  }
+  return head;
+}
+bool isEqual(node *head1, node *head2, int m, int n)
+{
+    if(n!=m || m!=n)
+    return false;
+    // head1 and head 2 are null
+  if(head1 == NULL || head2 == NULL)
+    return true;
+  // head1 and head2 are diffrent lenght
+  if( (head1 != NULL && head2 == NULL) || (head1 == NULL && head2 != NULL) )
+    return 0;
+  // head1 and if 2 are diffrent
+  if(head1 -> data != head2 -> data)
+    return 0;
+  // everything is ok so go to next node
+  return isEqual (head1 -> next, head2 -> next,m,n);
+}
+int main()
+{
+  int n = 0;
+  cin>> n;
+  node *head1 = createLinkedList(n);
+  int m = 0;
+  cin>> m;
+  node *head2 = createLinkedList(m);
+  cout << isEqual(head1, head2, n, m) << endl;
+  return 0;
+}

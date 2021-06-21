@@ -22,7 +22,7 @@
 //////////////////////////////////////////////////////////////////////
 ///////////////// SLinkedList + Primitive Data Type //////////////////
 //////////////////////////////////////////////////////////////////////
-
+//*testcase 1:
 TEST_CASE( "SLinkedList<int>[1]: adding items" ) {
     SLinkedList<int> list;
     REQUIRE( list.size() == 0 );
@@ -475,7 +475,7 @@ TEST_CASE( "SLinkedList<Point>:[2]") {
  * To contain object pointer in list, programmer need pass to:
  * 1/ Function for removing user data, e.g., &SLinkedList<Point*>::free
  * 2/ Function for comparing two user data, e.g., &Point::pointPtrEQ
- * See how to create a list:
+ * See how to create a list: 
  *  DLinkedList<Point*> list(&SLinkedList<Point*>::free, &Point::pointPtrEQ);
  */
 
