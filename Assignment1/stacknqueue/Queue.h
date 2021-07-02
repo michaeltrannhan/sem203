@@ -36,27 +36,39 @@ public:
     }
     void push(T item){
         //YOUR CODE HERE
+        list.add(item);
     }
     T pop(){
         //YOUR CODE HERE
+        if(list.empty()) throw Underflow("Queue");
+        return list.removeAt(0);
     }
     T& peek(){
         //YOUR CODE HERE
+        if(list.empty()) throw Underflow("Queue");
+        return list.get(0);
     }
     bool empty(){
         //YOUR CODE HERE
+        return list.empty();
     }
     int size(){
         //YOUR CODE HERE
+        return list.size();
     }
     void clear(){
         //YOUR CODE HERE
+        if(list.empty()) throw Underflow("Queue");
+        list.clear();
     }
     bool remove(T item){
         //YOUR CODE HERE
+        if(list.empty()) throw Underflow("Queue");
+        return list.removeItem(item);
     }
     bool contains(T item){
         //YOUR CODE HERE
+        return list.contains(item);
     }
     string  toString(string (*item2str)(T&)=0 ){
         stringstream os;
@@ -71,9 +83,13 @@ public:
     
     Iterator front(){
         //YOUR CODE HERE
+        Iterator *it = new Iterator(this);
+        return *it;
     }
     Iterator rear(){
         //YOUR CODE HERE
+        Iterator *it = new Iterator(this, false);
+        return *it;
     }
     
 private:

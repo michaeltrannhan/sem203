@@ -37,27 +37,37 @@ public:
     }
     void push(T item){
         //YOUR CODE HERE
+        list.add(0,item);
     }
     T pop(){
         //YOUR CODE HERE
+        if(list.empty()) throw Underflow("Stack");
+        return list.removeAt(0);
     }
     T& peek(){
         //YOUR CODE HERE
+        if(list.empty()) throw Underflow("Queue");
+        return list.get(0);
     }
     bool empty(){
         //YOUR CODE HERE
+        return list.empty();
     }
     int size(){
         //YOUR CODE HERE
+        return list.size();
     }
     void clear(){
         //YOUR CODE HERE
+        list.clear();
     }
     bool remove(T item){
         //YOUR CODE HERE
+        return list.removeItem(item);
     }
     bool contains(T item){
         //YOUR CODE HERE
+        return list.contains(item);
     }
     string  toString(string (*item2str)(T&)=0 ){
         stringstream os;
@@ -70,9 +80,13 @@ public:
     ///
     Iterator top(){
         //YOUR CODE HERE
+        Iterator *it = new Iterator(this);
+        return *it;
     }
     Iterator bottom(){
         //YOUR CODE HERE
+        Iterator *it = new Iterator(this, false);
+        return *it;
     }
     
     

@@ -229,7 +229,7 @@ void XArrayList<T>::add(T e) {
 }
 template<class T>
 void XArrayList<T>::add(int index, T e) {
-    ensureCapacity(index);
+    ensureCapacity(count);
 
     for(int idx=count-1; idx >= index; idx-- ){
         data[idx + 1] = data[idx];

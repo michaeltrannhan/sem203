@@ -58,7 +58,6 @@ public:
     }
     void clear(){
         //YOUR CODE HERE
-        if(list.empty()) throw Underflow("Queue");
         list.clear();
     }
     bool remove(T item){
@@ -83,11 +82,13 @@ public:
     
     Iterator front(){
         //YOUR CODE HERE
-        return list.head->next;
+        Iterator *it = new Iterator(this);
+        return *it;
     }
     Iterator rear(){
         //YOUR CODE HERE
-        return list.tail->prev;
+        Iterator *it = new Iterator(this, false);
+        return *it;
     }
     
 private:

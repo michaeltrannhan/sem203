@@ -31,12 +31,54 @@ int* genIntArray(int size, int minValue=0, int maxValue=100,
     uniform_int_distribution<int> dist(minValue, maxValue);
 
     //
+    //cout << "size = " << size << endl;
     for(int idx=0; idx < size; idx++) head[idx] = dist(*engine);
-
+    //cout << "size = " << size << endl;
     delete engine;
     return head;
 }
+int* permutation(int size, bool manualSeed=false, int seedValue=0){
+    int *ptr = new int[size];
+    for(int idx=0; idx < size; idx++) ptr[idx] = idx;
+    
+    uniform_int_distribution<int> dist(0, size-1);
+    int a, b, t;
+    if(manualSeed){
+        std::default_random_engine engine = 
+                    std::default_random_engine(static_cast<long unsigned int>(seedValue));
+        for(int idx=0; idx < size; idx++){
+            a = dist(engine); b = dist(engine);
+            t = ptr[a]; ptr[a] = ptr[b]; ptr[b] = t;
+        }
+    }
+    else{
+        std::default_random_engine engine = 
+                std::default_random_engine(static_cast<long unsigned int>(time(0)));
+        for(int idx=0; idx < size; idx++){
+            a = dist(engine); b = dist(engine);
+            t = ptr[a]; ptr[a] = ptr[b]; ptr[b] = t;
+        }
+    }
+    
+    return ptr;
+}
+int genInt(int minValue=0, int maxValue=100, 
+               bool manualSeed=false, int seedValue=0){
 
+    int value;
+    uniform_int_distribution<int> dist(minValue, maxValue);
+    
+    if(manualSeed){
+        std::default_random_engine engine = std::default_random_engine(static_cast<long unsigned int>(seedValue));
+        value = dist(engine);
+    }
+    else{
+        std::default_random_engine engine = std::default_random_engine(static_cast<long unsigned int>(time(0)));
+        value = dist(engine);
+    }
+        
+    return value;
+}
 template<class T>
 bool isOrdered(T* array, int size, bool ascending ){
     bool ordered = true;

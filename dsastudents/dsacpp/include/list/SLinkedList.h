@@ -390,36 +390,61 @@ T SLinkedList<T>::removeAt(int index)
 template <class T>
 bool SLinkedList<T>::removeItem(T item, void (*removeItemData)(T))
 {
-    bool isIn = contains(item);
-    if(!isIn) return false;
-    bool found = false;
-    bool itemfound = false;
-    Node *temp = head->next;
-    Node *prev = head;
-    Node *sub = new Node();
-    while (temp != tail)
+    //*prev version with bugged : sometimes return false instead of returning true if found
+    //*prev code begin
+    // bool isIn = contains(item);
+    // if(!isIn) return false;
+    // bool found = false;
+    // bool itemfound = false;
+    // Node *temp = head->next;
+    // Node *prev = head;
+    // Node *sub = new Node();
+    // while (temp != tail)
+    // {
+    //     found = SLinkedList<T>::equals(temp->data, item, this->itemEqual);
+    //     if (found)
+    //     {
+    //         prev->next = temp->next;
+    //         if (temp->next == tail)
+    //             tail->next = prev;
+    //         if (removeItemData)
+    //             removeItemData(temp->data);
+    //         sub = temp;
+    //         temp = temp->next;
+    //         delete sub;
+    //         count--;
+    //         if (!itemfound)
+    //             itemfound = true;
+    //     }
+    //     temp = temp->next;
+    //     prev = prev->next;
+    // }
+    // if (itemfound)
+    //     return true;
+    // return false;
+    //*prev code ends ---- to be debugged soon
+    // --------------------------------------------------
+    //*cleaner code begins
+    Node *temp = head;
+    bool item_found = false;
+    while (temp->next != tail)
     {
-        found = SLinkedList<T>::equals(temp->data, item, this->itemEqual);
-        if (found)
+        item_found = SLinkedList<T>::equals(temp->next->data, item, this->itemEqual); //
+        if(item_found)
         {
-            prev->next = temp->next;
-            if (temp->next == tail)
-                tail->next = prev;
-            if (removeItemData)
-                removeItemData(temp->data);
-            sub = temp;
-            temp = temp->next;
-            delete sub;
+            if (removeItemData) removeItemData(temp->next->data);
+            Node *nextNode = temp->next->next;  
+            delete temp->next;
+            temp->next = nextNode;
             count--;
-            if (!itemfound)
-                itemfound = true;
+            if (nextNode == tail)
+                tail->next = temp;
+            return true;
         }
         temp = temp->next;
-        prev = prev->next;
     }
-    if (itemfound)
-        return true;
     return false;
+
 }
 
 template <class T>

@@ -1,8 +1,10 @@
 #include <iostream>
 #include <iomanip>
 #include <list/XArrayList.h>
+#include "list/SLinkedList.h"
 #include "list/DLinkedList.h"
 #include "util/Point.h"
+#include "util/ArrayLib.h"
 #include "chrono"
 #include "vector"
 using namespace std::chrono;
@@ -74,16 +76,41 @@ void gentime()
     }
 }
 
-int main()
-{
-    // DLinkedList<int> list;
-    // for(int i = 0; i < 5;i++){
-    //     list.add(i);
-    // }
-    // list.add(3, 5);
-    // list.removeAt(3);
-    // list.println();
-    // cout << endl;
-    gentime();
-    return 0;
+int main(){
+    //gentime();
+    // XArrayList<int> list1;
+    // list1.add(2, 11); //* them vao vi tri so 2 gia tri 11
+    // cout << "listsize: " << list1.size() << endl;
+    // list1.println();
+    // return 0;
+    int nsizes =20;
+    int max_length = 100;
+    SLinkedList<int> list;
+    cout << "list size : " << list.size();
+
+    int* sizes = genIntArray(nsizes, 0, max_length, true, 2021);
+    for(int idx=0; idx < nsizes; idx++){
+        list.clear();
+        
+        int size = sizes[idx];
+        int* items = genIntArray(size, -500, 500, true, 2021);
+        
+        //enforce removals: success
+        for(int i=0; i < size; i++) list.add(items[i]);
+        for(int i=0; i < size; i++){
+            bool code = list.removeItem(items[i]);
+            cout << "status : " << code << endl;
+        }
+        
+        //enforce removals: fail
+        for(int i=0; i < size; i++) list.add(items[i]);
+        
+        int notfound[] = {-5000, -4000, -1000, 1000, 3000, 5000}; 
+        for(int item: notfound){
+            bool code = list.removeItem(item);
+            //cout << "status : " << code << endl;
+        }
+        delete []items;
+    }
+    delete []sizes; 
 }

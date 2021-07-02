@@ -548,7 +548,7 @@ bool DLinkedList<T>::removeItem(T item, void (*removeItemData)(T))
         temp = temp->next;
     }
     return false;
-}
+}   
 
 template <class T>
 bool DLinkedList<T>::contains(T item)

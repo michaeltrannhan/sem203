@@ -57,7 +57,7 @@ TEST_CASE( "Heap<int>: min and max heap" ) {
         Heap<int>::Iterator it;
         int idx = 0;
         while(!minHeap.empty()){
-            REQUIRE(minHeap.peek() == peek_exp[idx]);
+                REQUIRE(minHeap.peek() == peek_exp[idx]);
             REQUIRE(minHeap.pop() == peek_exp[idx]);
             idx += 1;
         }
