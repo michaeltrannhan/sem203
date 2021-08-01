@@ -18,186 +18,86 @@
 #include "stacknqueue/Stack.h"
 #include "hash/XHashMap.h"
 #include "stacknqueue/PriorityQueue.h"
-
+#include "sorting/DLinkedListSE.h"
 
 //////////////////////////////////////////////////////////////////////
 ///////////// GraphModel: Directed Graph Model    ////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
-template<class T>
-class DGraphModel: public AbstractGraph<T>{
+template <class T>
+class DGraphModel : public AbstractGraph<T>
+{
 private:
 public:
     DGraphModel(
-            bool (*vertexEQ)(T&, T&), 
-            string (*vertex2str)(T&) ): 
-        AbstractGraph<T>(vertexEQ, vertex2str){
+        bool (*vertexEQ)(T &, T &),
+        string (*vertex2str)(T &)) : AbstractGraph<T>(vertexEQ, vertex2str)
+    {
     }
-    
-    void connect(T from, T to, float weight=0){
-        //YOUR CODE HERE
-    }
-    void disconnect(T from, T to){
-        //YOUR CODE HERE
-    }
-    void remove(T vertex){
-        //YOUR CODE HERE
-    }
-};
 
-//////////////////////////////////////////////////////////////////////
-//////////////////// Algorithms with DGraphModel  ////////////////////
-//////////////////////////////////////////////////////////////////////
-template<class T>
-class TopoSorter{
-public:
-    static int DFS;
-    static int BFS; 
-    
-protected:
-    DGraphModel<T>* graph;
-    
-public:
-    TopoSorter(DGraphModel<T>* graph){
-        this->graph = graph;
-    }   
-    DLinkedList<T> sort(int mode=0){
-        if(mode == DFS) return dfsSort();
-        else return bfsSort();
-    }
-    DLinkedList<T> bfsSort(){
+    void connect(T from, T to, float weight = 0)
+    {
         //YOUR CODE HERE
+        typename AbstractGraph<T>::VertexNode *nodeF = this->getVertexNode(from);
+        typename AbstractGraph<T>::VertexNode *nodeT = this->getVertexNode(to);
+        if (nodeF == 0)
+            throw VertexNotFoundException(this->vertex2Str(*nodeF));
+        if (nodeT == 0)
+            throw VertexNotFoundException(this->vertex2Str(*nodeT));
+
+        nodeF->connect(nodeT, weight);
     }
-    DLinkedList<T> dfsSort(){
+    void disconnect(T from, T to)
+    {
         //YOUR CODE HERE
-    }
-    
-    
-protected:
-    XHashMap<T, int> vertex2inDegree(){
-        XHashMap<T, int> map(&XHashMap<T, int>::simpleHash);
-        typename AbstractGraph<T>::Iterator vertexIt = this->graph->begin();
-        while(vertexIt != this->graph->end()){
-            T vertex = *vertexIt;
-            int inDegree = this->graph->inDegree(vertex);
-            map.put(vertex, inDegree);
-            
-            vertexIt++;
-        }
-        return map;
-    }
-    XHashMap<T, int> vertex2outDegree(){
-        XHashMap<T, int> map(&XHashMap<T, int>::simpleHash);
-        typename AbstractGraph<T>::Iterator vertexIt = this->graph->begin();
-        while(vertexIt != this->graph->end()){
-            T vertex = *vertexIt;
-            int outDegree = this->graph->outDegree(vertex);
-            map.put(vertex, outDegree);
-            
-            vertexIt++;
-        }
-        return map;
-    }
-    
-    DLinkedList<T> listOfZeroInDegrees(){
-        DLinkedList<T> list;
-        typename AbstractGraph<T>::Iterator vertexIt = this->graph->begin();
-        while(vertexIt != this->graph->end()){
-            T vertex = *vertexIt;
-            int inDegree = this->graph->inDegree(vertex);
-            if(inDegree == 0) list.add(vertex);
-            
-            vertexIt++;
-        }
-        return list;
-    }
-}; //TopoSorter
-template<class T>
-int TopoSorter<T>::DFS = 0;
-template<class T>
-int TopoSorter<T>::BFS = 1;
+        typename AbstractGraph<T>::VertexNode *nodeF = this->getVertexNode(from);
+        typename AbstractGraph<T>::VertexNode *nodeT = this->getVertexNode(to);
+        if (nodeF == 0)
+            throw VertexNotFoundException(this->vertex2Str(*nodeF));
+        if (nodeF == 0)
+            throw VertexNotFoundException(this->vertex2Str(*nodeF));
 
-/////////////////////////////End of TopoSorter//////////////////////////////////
+        typename AbstractGraph<T>::Edge *edge = nodeF->getEdge(nodeT);
+        if (edge == 0)
+            throw EdgeNotFoundException(this->edge2Str(*edge));
+        nodeF->removeTo(nodeT);
+    }
+    void remove(T vertex)
+    {
+        //YOUR CODE HERE
+        typename AbstractGraph<T>::VertexNode *nodeA = this->getVertexNode(vertex);
+        if (nodeA == 0)
+            throw VertexNotFoundException(this->vertex2Str(*nodeA));
 
+        typename DLinkedList<typename AbstractGraph<T>::VertexNode*>::Iterator nodeIt = this->nodeList.begin();
+        while (nodeIt != this->nodeList.end())
+        {
+            typename AbstractGraph<T>::VertexNode *nodeB = *nodeIt;
+            typename AbstractGraph<T>::Edge *egde = nodeB->getEdge(nodeA);
+            if (egde != 0)
+                nodeB->removeTo(nodeA);
+            egde = nodeA->getEdge(nodeB);
+            if (egde != 0)
+                nodeA->removeTo(nodeB);
+            nodeIt++;
+        }
 
-template<class T>
-class DGraphAlgorithm{
-public:
-    class Node;
-    DGraphAlgorithm(){}
-    static bool vertexEQ(T& lhs, T& rhs){
-        return lhs==rhs;
+        this->nodeList.removeItem(nodeA);
     }
-    static bool nodeEQ(Node*& lhs, Node*& rhs){
-        return vertexEQ(lhs->vertex, rhs->vertex);
+
+    static DGraphModel<T> *create(T *vertices, int nvertices, Edge<T> *edges, int nedges, bool (*vertexEQ)(T &, T &), string (*vertex2str)(T &))
+    {
+        DGraphModel<T> *model = new DGraphModel<T>(vertexEQ, vertex2str);
+        for (int vidx = 0; vidx < nvertices; vidx++)
+        {
+            model->add(vertices[vidx]);
+        }
+        for (int eidx = 0; eidx < nedges; eidx++)
+        {
+            model->connect(edges[eidx].from, edges[eidx].to, edges[eidx].weight);
+        }
+        return model;
     }
-    static string item2str(T& item){
-        stringstream os;
-        os << item;
-        return os.str();
-    }
-    DLinkedList<Path<T>*> dijkstra(DGraphModel<T>* pGraph, T start){
-        DLinkedList<Node*> explored(0, DGraphAlgorithm<T>::nodeEQ);
-        PriorityQueue<Node*> frontier(&Node::compare);
-        frontier.push(new Node(0, start, 0, &DGraphAlgorithm<T>::vertexEQ));
-        while(!frontier.empty()){
-            Node *node = frontier.pop();
-            explored.add(node);
-            DLinkedList<T> children = pGraph->getOutwardEdges(node->vertex);
-            
-            typename DLinkedList<T>::Iterator childrenIt = children.begin();
-            //YOUR CODE HERE
-        }
-        return constructPath(explored);
-    }
-    
-    DLinkedList<Path<T>*> constructPath(DLinkedList<Node*> explored){
-        
-        DLinkedList<Path<T>*> list;
-        typename DLinkedList<Node*>::Iterator it = explored.begin();
-       //YOUR CODE HERE
-        return list;
-    }
-    
-    //////////////////////////////////////////////////////////////////////
-    ////////////////////////  INNER CLASSES DEFNITION ////////////////////
-    //////////////////////////////////////////////////////////////////////
-public:
-    class Node{
-    private:
-        Node* parent;
-        T vertex;
-        float pathCost;
-        bool (*vertexEQ_PTR)(T&,T&);
-        
-        friend class DGraphAlgorithm;
-        
-    public:
-        Node(   Node* parent, T vertex, float pathCost, 
-                bool (*vertexEQ_PTR)(T&,T&)){
-            this->parent = parent;
-            this->vertex = vertex;
-            this->pathCost = pathCost;
-            this->vertexEQ_PTR = vertexEQ_PTR;
-        }
-        bool equals(Node& node){
-            return this->vertexEQ_PTR(this->vertex, node.vertex);
-        }
-        string toString(){
-            stringstream os;
-            os << this->vertex;
-            return os.str();
-        }
-        static int compare(Node*& lhs, Node*& rhs){
-            float diff = lhs->pathCost - rhs->pathCost;
-            if(diff < 0) return -1;
-            else if(diff > 0) return +1;
-            else return 0;
-        }
-        
-    };
 };
 
 #endif /* DGRAPHMODEL_H */
-

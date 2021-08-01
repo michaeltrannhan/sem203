@@ -37,6 +37,21 @@ public:
             int segment_idx, int cur_segment_total,
             int (*comparator)(T&, T&)){
         //YOUR CODE HERE
+        int current;
+        int walker;
+        T temp;
+        current = segment_idx + cur_segment_total;
+        while(current < size){
+            temp = array[current];
+            walker = current - cur_segment_total;
+            while(walker >= 0 && comparator(array[walker], temp) > 0){
+                array[walker + cur_segment_total] = array[walker];
+                walker = walker - cur_segment_total;
+            }
+            array[walker + cur_segment_total] = temp;
+            current = current + cur_segment_total;
+        }
+        
     }
     /*
     shell_sort
@@ -46,6 +61,12 @@ public:
     */
     void sort(T array[], int size, int (*comparator)(T&,T&)){
         //YOUR CODE HERE
+        for(int k = this->num_phases-1; k >= 0; k--){
+            int nsegs = num_segment_list[k];
+            for(int segment_idx = 0; segment_idx < nsegs; segment_idx++){
+                sortSegment(array, size, segment_idx, nsegs, comparator);
+            }
+        }
     }
 };
 

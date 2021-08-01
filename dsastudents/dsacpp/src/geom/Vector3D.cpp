@@ -57,13 +57,13 @@ void Vector3D::setX(float x){
 float Vector3D::getX() const{
     return this->x;
 }
-void Vector3D::setY(float x){
+void Vector3D::setY(float y){
     this->y = y;
 }
 float Vector3D::getY() const{
     return this->y;
 }
-void Vector3D::setZ(float x){
+void Vector3D::setZ(float z){
     this->z = z;
 }
 float Vector3D::getZ() const{
@@ -88,7 +88,7 @@ float Vector3D::operator*(Vector3D other){
     return this->x*other.x + this->y*other.y + this->z*other.z;
 }
 Vector3D Vector3D::operator*(float s){
-    return Vector3D(this->x*s + this->y*s + this->z*s);
+    return Vector3D(this->x*s , this->y*s , this->z*s);
 }
 Vector3D::operator float(){
     return this->length();
@@ -148,4 +148,26 @@ string Vector3D::toString(Vector3D& point){
 }
 string Vector3D::toString(Vector3D*& point){
     return toString(*point);
+}
+
+Vector3D* Vector3D::genVectors(int size, float minValue, float maxValue, 
+                            bool manualSeed, int seedValue){
+    Vector3D* head = new Vector3D[size];
+        
+    std::default_random_engine* engine;
+    if(manualSeed)
+        engine = new std::default_random_engine(static_cast<long unsigned int>(seedValue));
+    else
+        engine = new std::default_random_engine(static_cast<long unsigned int>(time(0)));
+    uniform_real_distribution<double> dist(minValue, maxValue);
+
+    //
+    for(int idx=0; idx < size; idx++){
+        float x = dist(*engine);
+        float y = dist(*engine);
+        float z = dist(*engine);
+        head[idx] = Vector3D(x,y,z);
+    }
+    delete engine;
+    return head;
 }

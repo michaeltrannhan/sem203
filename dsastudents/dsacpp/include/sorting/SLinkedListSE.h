@@ -17,6 +17,8 @@
 #include "list/SLinkedList.h"
 #include "sorting/ISort.h"
 
+#define SNode typename SLinkedList<T>::Node
+
 template<class T>
 class SLinkedListSE: public SLinkedList<T>{
 public:
@@ -64,9 +66,43 @@ protected:
     };
     void devide(typename SLinkedList<T>::Node*& first, typename SLinkedList<T>::Node*& second){
         //YOUR CODE HERE
+        SNode *midpoint = first;
+        SNode *position = first->next;
+        while(position != NULL){
+            position = position->next;
+            if(position != NULL){
+                position = position->next;
+                midpoint = midpoint->next;
+            }
+        }
+        second= midpoint->next;
+
+        midpoint->next = 0;
     }
     void merge(typename SLinkedList<T>::Node*& first, typename SLinkedList<T>::Node*& second, int (*comparator)(T&,T&)=0){
         //YOUR CODE HERE
+        SNode combined;
+        SNode* lastSorted = &combined;
+        while(first != 0 && second != 0){
+            if(compare(first->data, second->data, comparator) <= 0){
+                lastSorted->next = first;
+                lastSorted = first;
+                first = first->next;
+            }
+            else{
+                lastSorted->next = second;
+                lastSorted = second;
+                second = second->next;
+            }
+        }
+        if(first != 0){
+            lastSorted->next = second;
+            second = 0;
+        }
+        else{
+            lastSorted->next = first;
+        }
+        first = combined.next;
     }
 };
 

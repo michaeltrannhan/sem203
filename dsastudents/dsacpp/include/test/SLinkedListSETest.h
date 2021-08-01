@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -17,6 +17,7 @@
 #include "doctest.h"
 #include "sorting/SLinkedListSE.h"
 #include "util/Point.h"
+#include "util/ArrayLib.h"
 
 TEST_CASE( "SLinkedListSE<int>[1]: adding items, then sorting" ) {
     int item[]      = {98, 65, 22, 11, 34, 28, 19, 8};

@@ -15,12 +15,13 @@
 #define ABSTRACTGRAPH_H
 #include "graph/IGraph.h"
 #include <string>
+#include <iomanip>
 #include <sstream>
 using namespace std;
 
 
 template<class T>
-class AbstractGraph{
+class AbstractGraph: public IGraph<T>{
 public:
     class Edge; //forward declaration
     class VertexNode; //forward declaration
@@ -161,6 +162,26 @@ public:
         if(node == 0) throw VertexNotFoundException(vertex2Str(*node));
         return node->outDegree();
     }
+    
+    virtual DLinkedList<T> vertices(){
+        DLinkedList<T> list(NULL, vertexEQ);
+        AbstractGraph<T>::Iterator it;
+        for(it = this->begin(); it != this->end(); it++){
+            list.add(*it);
+        }
+        
+        return list;
+    }
+    virtual bool connected(T from, T to){
+        typename AbstractGraph<T>::VertexNode* nodeF = this->getVertexNode(from);
+        typename AbstractGraph<T>::VertexNode* nodeT = this->getVertexNode(to);
+        if(nodeF == 0) throw VertexNotFoundException(this->vertex2Str(*nodeF));
+        if(nodeT == 0) throw VertexNotFoundException(this->vertex2Str(*nodeT));
+        
+        typename AbstractGraph<T>::Edge* edge = nodeF->getEdge(nodeT);
+        if(edge == 0) return false;
+        else return true;
+    }
     void println(){
         cout << this->toString() << endl;
     }
@@ -217,11 +238,13 @@ public:
 //////////////////////////////////////////////////////////////////////
 ////////////////////////  INNER CLASSES DEFNITION ////////////////////
 //////////////////////////////////////////////////////////////////////
-
+    
 public:
 //BEGIN of VertexNode    
     class VertexNode{
     private:
+        template<class U>
+        friend class UGraphModel; //UPDATED: added
         T vertex;
         int inDegree_, outDegree_;
         DLinkedList<Edge*> adList; 
@@ -232,8 +255,20 @@ public:
         string (*vertex2str)(T&);
         
     public:
+        /*
+         * OLD:
         VertexNode(){}
         VertexNode(T vertex, bool (*vertexEQ)(T&, T&), string (*vertex2str)(T&)){
+            this->vertex = vertex;
+            this->vertexEQ = vertexEQ;
+            this->vertex2str = vertex2str;
+            this->outDegree_ = this->inDegree_ = 0;
+        }
+         */
+        //UPDATE:
+        VertexNode():adList(&DLinkedList<Edge*>::free, &Edge::edgeEQ){}
+        VertexNode(T vertex, bool (*vertexEQ)(T&, T&), string (*vertex2str)(T&))
+            :adList(&DLinkedList<Edge*>::free, &Edge::edgeEQ){
             this->vertex = vertex;
             this->vertexEQ = vertexEQ;
             this->vertex2str = vertex2str;
@@ -277,11 +312,11 @@ public:
         }
         
         void removeTo(VertexNode* to){
-            Edge* pEdge = new Edge(this, to);
-            this->adList.removeItem(pEdge);
             this->outDegree_ -= 1;
             to->inDegree_ -= 1;
-                
+            
+            Edge* pEdge = new Edge(this, to);
+            this->adList.removeItem(pEdge);
             delete pEdge;
         }
         int inDegree(){
@@ -318,10 +353,13 @@ public:
             this->to = to;
             this->weight = weight;
         }
+        
         bool equals(Edge* edge){
             return this->from->equals(edge->from) && this->to->equals(edge->to);
         }
-        static bool edgeEQ(Edge* edge1, Edge* edge2){
+        //OLD: static bool edgeEQ(Edge* edge1, Edge* edge2){
+        //UPDATE
+        static bool edgeEQ(Edge*& edge1, Edge*& edge2){
             return edge1->equals(edge2);
         }
         string toString(){

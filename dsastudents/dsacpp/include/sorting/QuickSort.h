@@ -82,7 +82,24 @@ private:
         }
     };
     
-    /*pickupPivot:
+    // /*pickupPivot: old
+    //  *  use "median of threes
+    //  */
+    // static int pickupPivot(T* elements, int size){
+    //     if(size <= 0) throw std::out_of_range("Invalid size");
+    //     if((size == 1) || (size == 2)) return 0;
+    //     else{
+    //         int first = 0, mid = int(size/2), last = (size - 1);
+    //         if ((first > mid) != (first > last)) 
+    //             return first;
+    //         else if ((mid > first) != (mid > last)) 
+    //             return mid;
+    //         else
+    //             return last;
+    //     }
+    // };
+
+    /*pickupPivot: new 
      *  use "median of threes
      */
     static int pickupPivot(T* elements, int size){
@@ -90,14 +107,15 @@ private:
         if((size == 1) || (size == 2)) return 0;
         else{
             int first = 0, mid = int(size/2), last = (size - 1);
-            if ((first > mid) != (first > last)) 
+            if ((elements[first] > elements[mid]) != (elements[first] > elements[last]))
                 return first;
-            else if ((mid > first) != (mid > last)) 
+            else if ((elements[mid] > elements[first]) != (elements[mid]> elements[last]))
                 return mid;
             else
                 return last;
         }
     };
+
 };
 
 

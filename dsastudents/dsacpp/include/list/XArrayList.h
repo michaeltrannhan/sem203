@@ -353,7 +353,7 @@ void XArrayList<T>::ensureCapacity(int index){
         capacity = old_capacity + (old_capacity >> 2);
         try{
             T* new_data = new T[capacity];
-            memcpy(new_data, data, capacity*sizeof(T));
+            memcpy(new_data, data, old_capacity*sizeof(T));
             delete []data;
             data = new_data;
         }

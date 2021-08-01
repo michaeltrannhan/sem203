@@ -14,7 +14,10 @@
 #ifndef DGRAPHDEMO_H
 #define DGRAPHDEMO_H
 #include "graph/DGraphModel.h"
-
+#include "graph/TopoSorter.h"
+int hash_code(char& key, int size){
+    return (int)key % size;
+}
 bool charComparator(char& lhs, char& rhs){
     return lhs==rhs;
 }
@@ -48,7 +51,7 @@ void DGraphDemo2(){
     model.connect('C', 'D');
     model.println();
     
-    TopoSorter<char> sorter(&model);
+    TopoSorter<char> sorter(&model,&hash_code);
     DLinkedList<char> topo = sorter.sort(TopoSorter<char>::BFS);
     cout << left << setw(15) << "Topo-order: " << topo.toString() << endl;
 }
@@ -76,7 +79,7 @@ void DGraphDemo3(){
     model.connect('9', '4');
     model.println();
     
-    TopoSorter<char> sorter(&model);
+    TopoSorter<char> sorter(&model, &hash_code);
     DLinkedList<char> bfs = sorter.sort(TopoSorter<char>::BFS);
     cout << left << setw(15) << "Topo-order (BFS): " << bfs.toString() << endl;
     
@@ -84,39 +87,54 @@ void DGraphDemo3(){
     cout << left << setw(15) << "Topo-order (DFS): " << dfs.toString() << endl;
 }
 
-void dijkstraDemo(){
-    DGraphModel<char> model(&charComparator, &vertex2str);
-    model.add('0');
-    model.add('1');
-    model.add('2');
-    model.add('3');
-    model.add('4');
-    model.connect('0', '1', 5);
-    model.connect('0', '2', 3);
-    model.connect('0', '4', 2);
+// void dijkstraDemo(){
+//     DGraphModel<char> model(&charComparator, &vertex2str);
+//     model.add('0');
+//     model.add('1');
+//     model.add('2');
+//     model.add('3');
+//     model.add('4');
+//     model.connect('0', '1', 5);
+//     model.connect('0', '2', 3);
+//     model.connect('0', '4', 2);
 
-    model.connect('1', '2', 2);
-    model.connect('1', '3', 6);
+//     model.connect('1', '2', 2);
+//     model.connect('1', '3', 6);
 
-    model.connect('2', '1', 1);
-    model.connect('2', '3', 2);
+//     model.connect('2', '1', 1);
+//     model.connect('2', '3', 2);
 
-    model.connect('4', '1', 6);
-    model.connect('4', '2', 10);
-    model.connect('4', '3', 4);
-    model.println();
+//     model.connect('4', '1', 6);
+//     model.connect('4', '2', 10);
+//     model.connect('4', '3', 4);
+//     model.println();
  
 
-    DGraphAlgorithm<char> finder;
-    DLinkedList<Path<char>*> list = finder.dijkstra(&model, '0');
-    cout << "Dijkstra output:" << endl;
-    for(DLinkedList<Path<char>*>::Iterator it= list.begin(); it != list.end(); it++){
-        Path<char>* path = *it;
+//     //DGraphAlgorithm<char> finder;
+//     DLinkedList<Path<char>*> list = finder.dijkstra(&model, '0');
+//     cout << "Dijkstra output:" << endl;
+//     for(DLinkedList<Path<char>*>::Iterator it= list.begin(); it != list.end(); it++){
+//         Path<char>* path = *it;
         
-        cout << left << setw(8) << "path: ";
-        cout << path->toString() << endl;
+//         cout << left << setw(8) << "path: ";
+//         cout << path->toString() << endl;
+//     }
+//     cout << endl;
+// }
+
+DGraphModel<char> *reverse_graph(DGraphModel<char> *graph){
+    DLinkedList<char> vertices = graph->vertices(); // get vertices from graph
+    DGraphModel<char> *reversed = new DGraphModel<char>(&vertexEQ, &vertex2tr)// resulting reversed graph
+    for(auto it = vertices.begin(); it !=vertices.end(); it++){
+        reversed->add(*it);
     }
-    cout << endl;
+    for(auto it = vertices.begin() ; it != vertices.end();it++){
+        DLinkedList<char>children = graph->getOutwardEdges(*it);
+        for(auto it2=children.begin(); it2!= childredn.end();it2++){
+            reversed->connect(*it2, *it);
+        }
+    }
+    return reversed;
 }
 
 

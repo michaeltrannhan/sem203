@@ -242,7 +242,23 @@ void heapDemo3(){
     }
     cout << endl;
 }
-
-
+/*
+leftChild = position * 2 + 1
+rightChild = position * 2 + 2
+if leftChild <= lastPosition then
+if (rightChild <= lastPosition) AND
+(heap[rightChild].key > heap[leftChild].key then
+largeChild = rightChild
+else
+largeChild = leftChild
+end
+if heap[largeChild].key > heap[position].key then
+swap(largeChild, position)
+reheapDown(heap, largeChild, lastPosition)
+end
+end
+return
+End reheapDown
+*/
 #endif /* HEAPDEMO_H */
 

@@ -64,5 +64,6 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "list": "cpp"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

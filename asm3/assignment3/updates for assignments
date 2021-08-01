@@ -1,0 +1,64 @@
+/*
+
+Updates for Heap::ensureCapacity
+Questions: why do we need this update?
+*/
+
+template<class T>
+void Heap<T>::ensureCapacity(int minCapacity){
+    if(minCapacity >= capacity){
+        //re-allocate 
+        int old_capacity = capacity;
+        capacity = old_capacity + (old_capacity >> 2);
+        try{
+            T* new_data = new T[capacity];
+            //OLD: memcpy(new_data, elements, capacity*sizeof(T));
+            memcpy(new_data, elements, old_capacity*sizeof(T));
+            delete []elements;
+            elements = new_data;
+        }
+        catch(std::bad_alloc e){
+            e.what();
+        }
+    }
+}
+
+
+/*
+
+Updates for XHashMap::get
+Questions: why do we need this update?
+*/
+
+
+template<class K, class V>
+V& XHashMap<K,V>::get(K key){
+    //YOUR CODE HERE
+
+    //key: not found
+    stringstream os;
+    //OLD: os << "key (" << entry->key << ") is not found";
+    os << "key (" << key << ") is not found";
+    throw KeyNotFound(os.str());
+}
+
+
+/*
+
+Add class Pair in order to compile the following code successfully
+Questions: why do we need this update?
+*/
+
+
+
+Compile successfully:
+XHashMap<int, int> map(&hash_code);
+Pair<int, int> pairs[] = {
+    Pair<int, int>(10, 20),
+    Pair<int, int>(20, 40),
+    Pair<int, int>(40, 80),
+    Pair<int, int>(50, 100),
+    Pair<int, int>(60, 120),
+    Pair<int, int>(70, 140)
+};
+for(Pair<int, int> pair: pairs) map.put(pair.key, pair.value);

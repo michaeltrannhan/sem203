@@ -16,15 +16,32 @@
 
 #include "sorting/ISort.h"
 
-template<class T>
-class BubbleSort: public ISort<T>{
+template <class T>
+class BubbleSort : public ISort<T>
+{
 public:
-    void sort(T array[], int size, int (*comparator)(T&,T&)){
+    void swap(T* elements, int aidx, int bidx){
+        T temp = elements[aidx];
+        elements[aidx] = elements[bidx];
+        elements[bidx] = temp;
+    }
+    void sort(T array[], int size, int (*comparator)(T &, T &))
+    {
         //YOUR CODE HERE
-        
+        bool swapped = false;
+        int i, j;
+        for (i = 0; i < size; i++)
+        {
+            swapped = false;
+            for (j = 1; j < size ; j++){
+                if(comparator(array[j-1], array[j])>0){
+                   swap(array,j-1, j );
+                   swapped = true;
+                }
+            }
+            if(swapped==false) break;
+        }
     }
 };
 
-
 #endif /* BUBBLESORT_H */
-

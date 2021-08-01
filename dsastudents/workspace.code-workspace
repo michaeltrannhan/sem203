@@ -8,5 +8,7 @@
 		}
 	],
 	"remoteAuthority": "wsl+Ubuntu",
-	"settings": {}
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }

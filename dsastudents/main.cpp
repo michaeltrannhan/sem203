@@ -1,87 +1,65 @@
-// #include <iostream>
-// #include <iomanip>
-// #include "list/SLinkedList.h"
-// #include "list/IList.h"
-// #include "geom/Point3D.h"
-// #include "geom/Vector3D.h"
-// #include "util/Point.h"
-// #include "util/ArrayLib.h"
-// void removeItemDataD(Point* p){
-//     delete p;
-// }
-// int main(){
-//     SLinkedList<Point*> list(&SLinkedList<Point*>::free, &Point::pointEQ);
-//     list.add(new Point(1,1));
-//     list.add(new Point(2,2));
-//     list.add(new Point(3,3));
-//     list.println();
-//     cout << "---------" << endl;
-//     Point *p = new Point(1,1);
-//     cout << list.removeItem(p, &removeItemDataD);
-//     return 0;
-// }
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   SLinkedListDemo.h
- * Author: LTSACH
- *
- * Created on 19 August 2020, 21:16
- */
-
-
 #include <iostream>
 #include <iomanip>
-#include "list/SLinkedList.h"
-#include "util/Point.h"
+#include "util/ArrayLib.h"
+#include "util/FuncLib.h"
+#include "util/FileIOLib.h"
+#include "geom/Vector3D.h"
+#include "geom/Point3D.h"
+#include "graph/DGraphModel.h"
+#include "graph/TopoSorter.h"
 using namespace std;
+#include <math.h>
+/*1 points*/
 
-void slistDemo1(){
-    SLinkedList<int> slist;
-    for(int i = 0; i< 20 ; i++)
-        slist.add(i*i);
-    slist.println();
+int hash_code(char& key, int size){
+    return (int)key % size;
 }
-void slistDemo2(){
-    SLinkedList<Point*> list1(&SLinkedList<Point*>::free, &Point::pointEQ);
-    list1.add(new Point(23.2f, 25.4f));
-    list1.add(new Point(24.6f, 23.1f));  
-    list1.add(new Point(12.5f, 22.3f)); 
-    
-    for(SLinkedList<Point*>::Iterator it = list1.begin(); it != list1.end(); it++)
-        cout << **it << endl;
-    
-    Point* p1 = new Point(24.6f, 23.1f); //found in list
-    Point* p2 = new Point(124.6f, 23.1f); //not found
-    cout << *p1 << "=> " << (list1.contains(p1)? "found; " : "not found; ")
-                << " indexOf returns: " << list1.indexOf(p1) << endl;
-    cout << *p2 << "=> " << (list1.contains(p2)? "found; " : "not found; ")
-                << " indexOf returns: " << list1.indexOf(p2) << endl;
-    
-    ///Different results if not pass &Point::equals
-    cout << endl << endl;
-    SLinkedList<Point*> list2(&SLinkedList<Point*>::free);
-    list2.add(new Point(23.2f, 25.4f));
-    list2.add(new Point(24.6f, 23.1f));  
-    list2.add(new Point(12.5f, 22.3f)); 
-    
-    for(SLinkedList<Point*>::Iterator it = list2.begin(); it != list2.end(); it++)
-        cout << **it << endl;
-    
-    cout << *p1 << "=> " << (list2.contains(p1)? "found; " : "not found; ")
-                << " indexOf returns: " << list2.indexOf(p1) << endl;
-    cout << *p2 << "=> " << (list2.contains(p2)? "found; " : "not found; ")
-                << " indexOf returns: " << list2.indexOf(p2) << endl;
-    
-    delete p1; delete p2;
+bool charComparator(string lhs, string rhs){
+    return lhs==rhs;
 }
-int main(){
-    slistDemo2(); 
+string vertex2str(char& v){
+    stringstream os;
+    os << v;
+    return os.str();
+}
+DGraphModel<string> *create_graph(){
+    //YOUR CODE HERE to define and return the Graph
+    DGraphModel<string> model(&charComparator, &vertex2str);
+    string names[]={"Hash", "List","SortingAlgorithms", "StackQueue","Heap","Tree","Graph"};
+    for(int idx = 0; idx<7; idx++){
+        model.add(names[idx]);
+    }
+    model.connect("Graph", "Hash", 0);
+    model.connect("Graph", "List", 0);
+    model.connect("Graph", "StackQueue", 0);
+    model.connect("List", "SortingAlgorithms", 0);
+    model.connect("Tree", "List", 0);
+    model.connect("Tree", "StackQueue", 0);
+    model.connect("StackQueue", "Heap", 0);
+    model.connect("StackQueue", "List", 0);
+    model.connect("SortingAlgorithms", "Heap", 0);
+    
+    return model;
+}
+
+/*1 points*/
+void compile_modules(DGraphModel<string> * graph, void (*compile)(string)){
+    //YOUR CODE HERE to compile modules => call "compile" if you want to compile any module
+
+   
+}
+
+
+///////////////////////////////////////////////////////////////////
+///// DO NOT CHANGE THE FOLLOWING
+///////////////////////////////////////////////////////////////////
+void do_compilation(string module){
+    module = "\"" + module + "\"";
+    cout << "Compile " << setw(30) << left << module << "... Done!" << endl;
+}
+int main(int argc, char** argv){
+    DGraphModel<string> *graph = create_graph();
+    compile_modules(graph, &do_compilation);
+    delete graph;
     return 0;
 }
-

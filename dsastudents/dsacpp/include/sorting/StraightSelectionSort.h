@@ -22,6 +22,24 @@ class StraightSelectionSort: public ISort<T>{
 public:   
     void sort(T array[], int size, int (*comparator)(T&,T&)){
         //YOUR CODE HERE
+        int current, smallest, walker;
+        current = 0;
+        while(current < size -1){
+            smallest = current;
+            walker = current + 1;
+            while (walker < size){
+                if(comparator(array[smallest], array[walker])>0){
+                    smallest = walker;
+                }
+                walker++;
+            }
+            if(smallest != current){
+                T temp = array[smallest];
+                array[smallest] = array[current];
+                array[current] = temp;
+            }
+            current += 1;
+        }
     }
 };
 

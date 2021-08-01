@@ -86,35 +86,35 @@ void ugraphDemo2(){
 }
 
 
-void ugraphDemo3(){
-    UGraphModel<char> model(&charEQ, &char2str);
-    model.add('A');
-    model.add('B');
-    model.add('C');
-    model.add('D');
-    model.add('E');
-    model.add('F');
-    model.connect('A', 'B', 6);
-    model.connect('A', 'C', 3);
+// void ugraphDemo3(){
+//     UGraphModel<char> model(&charEQ, &char2str);
+//     model.add('A');
+//     model.add('B');
+//     model.add('C');
+//     model.add('D');
+//     model.add('E');
+//     model.add('F');
+//     model.connect('A', 'B', 6);
+//     model.connect('A', 'C', 3);
 
-    model.connect('B', 'C', 2);
-    model.connect('B', 'D', 5);
+//     model.connect('B', 'C', 2);
+//     model.connect('B', 'D', 5);
 
-    model.connect('C', 'D', 3);
-    model.connect('C', 'E', 4);
+//     model.connect('C', 'D', 3);
+//     model.connect('C', 'E', 4);
 
-    model.connect('D', 'E', 2);
-    model.connect('D', 'F', 3);
+//     model.connect('D', 'E', 2);
+//     model.connect('D', 'F', 3);
 
-    model.connect('E', 'F', 5);
+//     model.connect('E', 'F', 5);
 
-    model.println();
+//     model.println();
     
-    cout << "Minimum Spanning Tree:" << endl;
-    UGraphAlgorithm<char> mst;
-    UGraphModel<char> tree = mst.minSpanningTree(&model);
-    tree.println();
-}
+//     cout << "Minimum Spanning Tree:" << endl;
+//     UGraphAlgorithm<char> mst;
+//     UGraphModel<char> tree = mst.minSpanningTree(&model);
+//     tree.println();
+// }
 
 
 #endif /* UGRAPHDEMO_H */

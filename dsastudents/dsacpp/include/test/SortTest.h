@@ -69,7 +69,7 @@ TEST_CASE( "Sorting ascending" ) {
     }
 }
 
-TEST_CASE( "Sorting ascending" ) {
+TEST_CASE( "Sorting descending" ) {
     int shell_segments[] = {1, 3, 7};
     ISort<int>* pAlgorithm[] ={
         new StraightInsertionSort<int>(),

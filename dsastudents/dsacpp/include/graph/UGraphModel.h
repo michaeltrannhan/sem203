@@ -13,7 +13,7 @@
 
 #ifndef UGRAPHMODEL_H
 #define UGRAPHMODEL_H
-
+#include "graph/IGraph.h"
 #include "graph/AbstractGraph.h"
 #include "stacknqueue/PriorityQueue.h"
 
@@ -26,8 +26,8 @@ template<class T>
 class UGraphModel: public AbstractGraph<T>{
 private:
 public:
-    class UGraphAlgorithm;
-    friend class UGraphAlgorithm;
+    //class UGraphAlgorithm;
+    //friend class UGraphAlgorithm;
     
     UGraphModel(
             bool (*vertexEQ)(T&, T&), 
@@ -37,65 +37,69 @@ public:
     
     void connect(T from, T to, float weight=0){
         //YOUR CODE HERE
+        typename AbstractGraph<T>::VertexNode *nodeF = this->getVertexNode(from);
+        typename AbstractGraph<T>::VertexNode *nodeT = this->getVertexNode(to);
+        if(nodeF == 0) throw VertexNotFoundException(this->vertex2Str(*nodeF));
+        if(nodeT == 0) throw VertexNotFoundException(this->vertex2Str(*nodeT));
+
+        if(nodeF->equals(nodeT)){
+            nodeF->connect(nodeT, weight);
+        }
+        else{
+            nodeF->connect(nodeT, weight);
+            nodeT->connect(nodeF, weight);
+        }
     }
     void disconnect(T from, T to){
         //YOUR CODE HERE
+        typename AbstractGraph<T>::VertexNode *nodeF = this->getVertexNode(from);
+        typename AbstractGraph<T>::VertexNode *nodeT = this->getVertexNode(to);
+        if(nodeF == 0) throw VertexNotFoundException(this->vertex2Str(*nodeF));
+        if(nodeT == 0) throw VertexNotFoundException(this->vertex2Str(*nodeT));
+
+        typename AbstractGraph<T>::Edge *edge =nodeF->getEdge(nodeT);
+        if(edge == 0) throw EdgeNotFoundException(this->edge2Str(*edge));
+        if(nodeF->equals(nodeT)){
+            nodeF->removeTo(nodeT);
+        }
+        else{
+            nodeF->removeTo(nodeT);
+            nodeT->removeTo(nodeF);
+        }
     }
     void remove(T vertex){
         //YOUR CODE HERE
+        typename AbstractGraph<T>::VertexNode *nodeA = this->getVertexNode(vertex);
+        if(nodeA == 0) throw VertexNotFoundException(this->vertex2Str(*nodeA));
+
+        typename DLinkedList<typename AbstractGraph<T>::VertexNode*>::Iterator nodeIt = this->nodeList.begin();
+        while(nodeIt != this->nodeList.end()){
+            typename AbstractGraph<T>::VertexNode *nodeB = *nodeIt;
+            typename AbstractGraph<T>::Edge *egde = nodeB->getEdge(nodeA);
+            if(egde != 0){
+            nodeB->removeTo(nodeA);
+            nodeA->removeTo(nodeB);
+            }
+            nodeIt++;
+        }
+        this->nodeList.removeItem(nodeA);
+    }
+    static UGraphModel<T> *create(T *vertices, int nvertices, Edge<T> *edges, int nedges, bool (*vertexEQ)(T &, T &), string (*vertex2str)(T &))
+    {
+        UGraphModel<T> *model = new UGraphModel<T>(vertexEQ, vertex2str);
+        for (int vidx = 0; vidx < nvertices; vidx++)
+        {
+            model->add(vertices[vidx]);
+        }
+        for (int eidx = 0; eidx < nedges; eidx++)
+        {
+            model->connect(edges[eidx].from, edges[eidx].to, edges[eidx].weight);
+        }
+        return model;
     }
 };
 
 
-//////////////////////////////////////////////////////////////////////
-//////////////////// Algorithms with UGraphModel  ////////////////////
-//////////////////////////////////////////////////////////////////////
-
-template<class T>
-class UGraphAlgorithm{
-private:
-public:
-    UGraphAlgorithm(){
-    }
-    
-    UGraphModel<T> minSpanningTree(UGraphModel<T>* pGraph){
-        //(1) Obtain the list of vertices being processed
-        //YOUR CODE HERE
-        
-        //(2) Process each vertex in vertexList
-        //YOUR CODE HERE
-    }
-    
-    
-    //////////////////////////////////////////////////////////////////////
-    ////////////////////////  INNER CLASSES DEFNITION ////////////////////
-    //////////////////////////////////////////////////////////////////////
-    
-    class Edge{
-    private:
-        T from;
-        T to;
-        float weight;
-        
-        //friend class UGraphModel;
-        friend class UGraphAlgorithm;
-        
-    public:
-        Edge(T from, T to, float weight){
-            this->from = from;
-            this->to = to;
-            this->weight = weight;
-        }
-        
-        static int edgeComparator(Edge*& edge1, Edge*& edge2){
-            float diff = edge1->weight - edge2->weight;
-            if(diff < 0) return -1;
-            else if(diff > 0) return +1;
-            else return 0;
-        }
-    };
-    
-};
 
 #endif /* UGRAPHMODEL_H */
 
